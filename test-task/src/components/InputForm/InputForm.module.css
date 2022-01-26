@@ -1,0 +1,17 @@
+.card{
+border-radius: .7rem;
+box-shadow: 2px 1px 8px;
+padding: 1rem;
+margin: 1rem;
+max-width: 30rem;
+}
+.todocard{
+    display: flex;
+    align-items: center;
+}
+.iconCheck{
+    color: rgb(14, 236, 14);
+}
+.iconDel{
+    color: rgb(184, 7, 7);
+}
