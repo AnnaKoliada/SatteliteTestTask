@@ -11,8 +11,8 @@ function App(props: any) {
 
   return (
     <BrowserRouter>
-      <div>
         <Header />
+        <div className='container mb-4 flex-grow-1'>
         <Switch>
           <Route  path='/' exact render = {()=> props.isFetching ? <Loader /> : <Main /> } />
           <Route exact path='/not-found' render = {()=>props.isFetching ? <Loader /> : <NotFound />  } />

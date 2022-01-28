@@ -1,40 +1,49 @@
 import React, { useState } from 'react';
 import Loader from '../Common/Loader/Loader';
+import Phonetic from '../Phonetic/Phonetic';
 import s from './Word.module.css';
 
 const Word = (props: any) => {
-  // const [data, setData] = useState<any>([]);
+ 
+  let count = 0;
+  let arr: any = [];
+  function getProp(o: any) {
+    for (const key in o) {
+      count++;
+      if (typeof o[key] === 'object') {
+        getProp(o[key]);
+      } else {
+        if (key === 'audio') {
+          arr = [
+            ...arr,
+            <tr key={count} className='table-primary'>
+              <th scope='row'>{key}</th>
+              <td>
+                <Phonetic audio={o[key]} />
+              </td>
+            </tr>,
+          ];
+        } else
+          arr = [
+            ...arr,
+            <tr key={count} className='table-primary'>
+              <th scope='row'>{key}</th>
+              <td> {o[key]}</td>
+            </tr>,
+          ];
+      }
+    }
 
-  // console.log(props);
-  // function getFiniteValue(obj: { [x: string]: any }) {
-  //   function getProp(o: { [x: string]: any }) {
-  //     Object.entries(o).map((el, index) => {
-  //       console.log(el);
-  //       // if(!Array.isArray(el)){
-
-  //       if (el.every((aa) => typeof aa === 'string')) {
-  //         setData([...el]);
-  //         console.log(el);
-  //       } else
-  //         el.forEach((a, i) => {
-  //           if (typeof a === 'object' && a.length !== 0) {
-  //             getProp(el[1]);
-  //           }
-  //         });
-
-  //       // } else
-  //     });
-  //   }
-  //   getProp(obj);
-  // }
-  // props.wordData.map((e: string, index: number) => {
-  //   if (typeof e === 'object') {
-  //     getFiniteValue(e);
-  //   }
-  // });
+    return arr;
+  }
   return (
     <div>
-       {JSON.stringify(props.wordData)}
+      {props.wordData.map((object: any, index: number) => (
+        <table key={index} className='table table-hover'>
+          <tbody>{getProp(object)}</tbody>
+        </table>
+      ))}
+      {/* {props.wordData.parse()} */}
     </div>
   );
 };

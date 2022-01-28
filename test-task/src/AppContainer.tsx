@@ -6,7 +6,6 @@ import Main from './components/Main/Main';
 import Word from './components/Word/Word';
 
 function AppContainer(props: any) {
-  console.log('AppContainer', props);
   return <App {...props} />;
 }
 const mapStateToProps = (state: { word: { word: any; }; fetching: { isFetching: any; }; } ) => {

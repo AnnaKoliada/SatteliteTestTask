@@ -1,10 +1,11 @@
 import React from 'react';
+import loader from '../../../assets/images/loader.svg';
+import s from './Loader.module.css';
 
 const Loader = () => {
   return (
-    <div className='spinner-border m-5' role='status'>
-   scac
-      <span className='visually-hidden'>Loading...</span>
+    <div className={s.loader}>
+      <img src={loader} alt='loading...' />
     </div>
   );
 };

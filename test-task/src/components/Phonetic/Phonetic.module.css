@@ -1,0 +1,9 @@
+.audio{
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+padding:  0 0 1em 1em ;
+}
+.text{
+    padding-right: 1em;
+}

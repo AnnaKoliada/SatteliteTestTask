@@ -32,5 +32,4 @@ const mapStateToProps = (state: any) => {
 export default compose(
   connect(mapStateToProps, { setWordDataParams, setWordAC }),
   withRedirect,
-  withRouter,
 )(WordContainer) as React.ComponentType;

@@ -12,7 +12,7 @@ import AppContainer from './AppContainer';
 ReactDOM.render(
   <React.StrictMode>
     <Provider store={store}>
-      <AppContainer />
+      <AppContainer/>
     </Provider>
   </React.StrictMode>,
   document.getElementById('root'),

@@ -1,0 +1,9 @@
+.property{
+width: 100%;
+display: flex;
+
+}
+.title{
+    text-transform: uppercase;
+    padding-right: 1em;
+}
