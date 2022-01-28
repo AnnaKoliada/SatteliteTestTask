@@ -1,9 +1,7 @@
-import React, { useState } from 'react';
-import Loader from '../Common/Loader/Loader';
+import React from 'react';
 import Phonetic from '../Phonetic/Phonetic';
-import s from './Word.module.css';
 
-const Word = (props: any) => {
+const Word = (props: { wordData: any[] }): JSX.Element => {
  
   let count = 0;
   let arr: any = [];
@@ -43,7 +41,6 @@ const Word = (props: any) => {
           <tbody>{getProp(object)}</tbody>
         </table>
       ))}
-      {/* {props.wordData.parse()} */}
     </div>
   );
 };

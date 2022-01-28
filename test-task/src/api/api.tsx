@@ -7,12 +7,8 @@ const instance = axios.create({
 });
 
 export const wordDataAPI = {
-  async getWordData(word: string){
-    console.log(word);
-
+  async getWordData(word: string): Promise<any>{
     const response = instance.get(`${word}`);
-    console.log(response);
     return response;
   },
- 
 };

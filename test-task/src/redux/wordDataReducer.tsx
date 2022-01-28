@@ -4,10 +4,9 @@ import { setIsCheckedAC, setIsWordAC, setWordAC } from './wordReducer';
 
 const SET_WORD_DATA = 'SET_WORD_DATA';
 
-const initialState: any = [];
+const initialState: any[] = [];
 
-const wordDataReducer = (state = initialState, action: { type: any; data: any }) => {
-  console.log(state);
+const wordDataReducer = (state = initialState, action: { type: any; data: any }): any[] => {
   switch (action?.type) {
     case SET_WORD_DATA:
       return [...action.data];
@@ -16,33 +15,10 @@ const wordDataReducer = (state = initialState, action: { type: any; data: any })
   }
 };
 
-export const setWordDataAC = (data: string) => {
-  console.log(data);
+export const setWordDataAC = (data: string): { type: string, data: string } => {
   return { type: SET_WORD_DATA, data };
 };
 
-// export const setWordData = (word: string, history: any, stateWord: string) => {
-//   console.log('setWordData', word);
-//   return (dispatch: (arg0: { type: string; isFetching?: boolean; data?: string }) => void) => {
-//     if (stateWord.length !== 0){
-//       dispatch(updateIsFetching(true));
-//       wordDataAPI
-//         .getWordData(word)
-//         .then((response) => {
-//           history.push(word);
-//           dispatch(setIsWordAC(true));
-//           dispatch(setWordDataAC(response.data));
-//           dispatch(updateIsFetching(false));
-        
-//         })
-//         .catch(() => {
-//           history.push('not-found');
-//           dispatch(setIsWordAC(false));
-//           dispatch(updateIsFetching(false));
-//         });
-//     }
-//   };
-// };
 export const setWordDataParams = (word: string, history: any) => {
   return (dispatch: (arg0: { type: string; isFetching?: boolean; data?: string }) => void) => {
     dispatch(updateIsFetching(true));
@@ -55,17 +31,12 @@ export const setWordDataParams = (word: string, history: any) => {
         dispatch(setIsWordAC(true));
         dispatch(setWordDataAC(response.data));
         dispatch(updateIsFetching(false));
-        
       })
       .catch(() => {
         if (history) history.push('not-found');
         dispatch(setIsWordAC(false));
         dispatch(updateIsFetching(false));
-      
       });
-      
-    // }
-   
   };
 };
 

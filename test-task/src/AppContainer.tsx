@@ -1,14 +1,11 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import App from './App';
-import Main from './components/Main/Main';
-import Word from './components/Word/Word';
 
-function AppContainer(props: any) {
+function AppContainer(props:{ isFetching: boolean }) {
   return <App {...props} />;
 }
-const mapStateToProps = (state: { word: { word: any; }; fetching: { isFetching: any; }; } ) => {
+const mapStateToProps = (state: { fetching: { isFetching: boolean; } } ) => {
   return {
     isFetching: state.fetching.isFetching,
   };

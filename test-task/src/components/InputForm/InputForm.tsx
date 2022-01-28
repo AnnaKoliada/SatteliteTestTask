@@ -1,33 +1,33 @@
-import React, { useState } from 'react';
-import { Field, reduxForm } from 'redux-form';
-import s from './InputForm.module.css';
+import React from 'react';
 
+type Prop = {
+  inputValue: string;
+  setInputValue: (arg: string) => void;
+  searchWord: () => void;
+};
 
-function InputForm(props: any) {
-
-
-  
-  const changeValueInput = (e: { target: { value: React.SetStateAction<string> } }) => {
+function InputForm(props: Prop): JSX.Element {
+  const changeValueInput = (e: React.ChangeEvent<HTMLInputElement>) => {
     props.setInputValue(e.target.value);
   };
 
-  const handleSubmit = (e: any) => {
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     props.searchWord();
   };
 
   return (
-    <form onSubmit={(e)=>handleSubmit(e)}>
-      <div className="input-group mb-3">
+    <form onSubmit={(e) => handleSubmit(e)}>
+      <div className='input-group mb-3'>
         <input
-          name="word"
-          type="text"
-          className="form-control"
-          placeholder="Write..."
-          aria-describedby="button-addon2"
-          onChange={(e)=>changeValueInput(e)}
+          name='word'
+          type='text'
+          className='form-control'
+          placeholder='Write...'
+          aria-describedby='button-addon2'
+          onChange={(e) => changeValueInput(e)}
         />
-        <button className="btn btn-outline-secondary" type="submit" id="button-addon2">
+        <button className='btn btn-outline-secondary' type='submit' id='button-addon2'>
           Search
         </button>
       </div>
@@ -36,7 +36,3 @@ function InputForm(props: any) {
 }
 
 export default InputForm;
-function useHistory() {
-  throw new Error('Function not implemented.');
-}
-

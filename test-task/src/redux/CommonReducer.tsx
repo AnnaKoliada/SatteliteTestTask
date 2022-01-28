@@ -3,13 +3,12 @@ const UPDATE_IS_FETCHING = 'UPDATE_IS_FETCHING';
 
 const initialState = {
   isFetching: false,
-  
 };
 
 const commonReducer = (
   state = initialState,
   action: { type: string; isFetching: boolean; },
-) => {
+): { isFetching: boolean; } => {
   switch (action?.type) {
     case UPDATE_IS_FETCHING:
       return {
